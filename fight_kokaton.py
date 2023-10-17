@@ -146,12 +146,12 @@ class Beam:
 
 class Score:
     def __init__(self,):
-        self.font = pg.font.SysFont("hgp創英角ﾎﾟｯﾌﾟ体", 30)
-        self.cl=(0,0,255)
-        self.img = self.font.render(f"スコア:0", 0, self.cl)
-        self.rct =[300,HEIGHT-250]
+        self.font = pg.font.SysFont("hgp創英角ﾎﾟｯﾌﾟ体", 30)#フォントの設定
+        self.cl=(0,0,255)#色の設定
+        self.img = self.font.render(f"スコア:0", 0, self.cl)#フォントの表示
+        self.rct =[300,HEIGHT-250]#座標の設定
 
-    def update(self,ct,screen: pg.Surface):
+    def update(self,ct,screen: pg.Surface):#スコアのアップデート
         self.img=self.font.render(f"スコア:{ct}", 0, self.cl)
         screen.blit(self.img, self.rct)
 
@@ -165,7 +165,6 @@ def main():
     beam =None
     score=Score()
     ct=0
-
     clock = pg.time.Clock()
     tmr = 0
     while True:
@@ -190,7 +189,6 @@ def main():
                     beam = None
                     bombs[i] = None
                     bird.change_img(6, screen)
-                    
                     pg.display.update()
                     time.sleep(1)
                     ct+=1
